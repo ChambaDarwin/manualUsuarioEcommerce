@@ -13,30 +13,73 @@ body {
     line-height: 1.6;
 }
 
+/* Estilos para el navbar */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--primary-color);
-    z-index: 1030; /* Asegura que el navbar esté por encima de otros elementos */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Opcional: añade una sombra para mejor visibilidad */
+    z-index: 1030;
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 0;
 }
 
-/* Añade un padding al body para compensar la altura del navbar fijo */
-body {
-    padding-top: 56px; /* Ajusta este valor según la altura de tu navbar */
+.navbar-brand {
+    color: var(--light-color) !important;
+    font-weight: 600;
+    font-size: 1.4rem;
 }
 
-.nav-pills .nav-link.active {
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link.active {
+    color: white !important;
     background-color: var(--secondary-color);
+    font-weight: 600;
 }
 
-.nav-link {
-    color: var(--light-color);
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.25rem 0.5rem;
 }
 
-.nav-link:hover {
-    color: var(--secondary-color);
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Ajuste del padding para el cuerpo debido al navbar fijo */
+body {
+    padding-top: 76px;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        padding: 1rem 0;
+    }
+
+    .navbar-nav .nav-link {
+        margin: 0.1rem 0;
+        padding: 0.8rem 1rem;
+    }
+
+    body {
+        padding-top: 70px;
+    }
 }
 
 section {
@@ -61,20 +104,111 @@ h2 {
     vertical-align: middle;
 }
 
+/* Estilos para el footer (corregidos para móviles) */
 footer {
     background-color: var(--dark-color);
     color: white;
-    padding: 2rem 0;
+    padding: 2.5rem 0 1.5rem;
     margin-top: 3rem;
 }
 
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.footer-contact,
+.footer-social {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-contact h5,
+.footer-social h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.footer-contact p {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
 .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
     color: white;
-    font-size: 1.5rem;
-    margin: 0 10px;
-    transition: color 0.3s;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .social-links a:hover {
-    color: var(--secondary-color);
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footer-contact p {
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    body {
+        padding-top: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+    footer {
+        padding: 2rem 0 1rem;
+    }
+
+    .footer-contact,
+    .footer-social {
+        min-width: 100%;
+    }
+
+    .footer-contact h5,
+    .footer-social h5 {
+        font-size: 1.1rem;
+    }
 }
